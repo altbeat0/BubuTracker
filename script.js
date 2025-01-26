@@ -74,7 +74,7 @@ function updateOverallAttendance() {
         : 0;
 
     document.getElementById('overall-attendance').textContent = 
-        `Overall Attendance: ${overallPercentage}%`;
+        `bubutendance: ${overallPercentage}%`;
 }
 
 // Function to restore attendance from localStorage
