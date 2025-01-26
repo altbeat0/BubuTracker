@@ -152,3 +152,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Restore previous attendance
     restoreAttendance();
 });
+
+// Add these functions at the end of the existing script, before the window.addEventListener('load', ...)
+
+function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+}
+
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+    }
+}
+
+// Modify the existing window.addEventListener('load', ...) to include these:
+window.addEventListener('load', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', toggleTheme);
+    loadTheme();
+    
+    setupEventListeners();
+    restoreAttendance();
+});
